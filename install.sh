@@ -23,6 +23,6 @@ else
     confirm "Would you like to install the .vimrc?" && sed -i "1i $source_vim" ~/.vimrc
 fi
 confirm "Would you like to manually edit the .vimrc now?" && vim ~/.vimrc
-confirm "Would you like to install vim plugins now?" && vim +PluginInstall +PluginClean! +qall
+confirm "Would you like to install/update vim plugins now?" && vim  +PluginClean! +PluginUpdate +PluginInstall +qall
 
 echo "Finished"
