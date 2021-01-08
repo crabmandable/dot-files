@@ -174,8 +174,8 @@ hi SpellCap ctermbg=237
 hi Pmenu ctermfg=white ctermbg=none
 hi PmenuSel ctermfg=black
 
-hi CursorLine cterm=NONE ctermbg=0
-hi CursorLineNr cterm=NONE ctermbg=234
+hi CursorLine cterm=NONE ctermbg=234
+hi CursorLineNr cterm=NONE ctermbg=232
 hi Search ctermfg=0 ctermbg=3
 hi Visual ctermfg=15 ctermbg=23
 hi DiffChange ctermfg=0
