@@ -79,7 +79,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " always on
 set laststatus=2
-let g:airline_theme='deus'
+let g:airline_theme='behelit'
 
 Plugin 'leafOfTree/vim-vue-plugin'
 
