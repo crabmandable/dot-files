@@ -16,13 +16,24 @@ confirm() {
 }
 
 # VIM
-source_vim="source $PWD/.vimrc \" Make sure this stays on line 1"
-if [ "$(head -n 1 ~/.vimrc)" == "$source_vim" ]; then
-    echo "The .vimrc is already installed"
-else
-    confirm "Would you like to install the .vimrc?" && sed -i "1i $source_vim" ~/.vimrc
+if confirm "Would you like to install the .vimrc?"; then
+    if [ -f ~/.vimrc ]; then
+        # if its already installed do nothing
+        if [ -L ~/.vimrc ] && [ $(readlink ~/.vimrc) -ef $PWD/vim/.vimrc ]; then
+            echo "The .vimrc is already installed"
+        else
+            # if theres already a vimrc, check about moving it to .vimrc-extra
+            if confirm "A .vimrc already exists here, would you like to move it to '.vimrc-extra'? (saying no deletes it)"; then
+                confirm "Would you like to manually edit the old vimrc first?" && vim ~/.vimrc
+                mv ~/.vimrc ~/.vimrc-extra
+            else
+                rm ~/.vimrc
+            fi
+
+            ln -s $PWD/vim/.vimrc ~/.vimrc
+        fi
+    fi
+    confirm "Would you like to install/update vim plugins now?" && vim  +PluginClean! +PluginUpdate +PluginInstall +qall
 fi
-confirm "Would you like to manually edit the .vimrc now?" && vim ~/.vimrc
-confirm "Would you like to install/update vim plugins now?" && vim  +PluginClean! +PluginUpdate +PluginInstall +qall
 
 echo "Finished"

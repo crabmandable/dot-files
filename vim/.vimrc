@@ -172,6 +172,7 @@ hi ColorColumn ctermfg=0
 hi StatusLineTerm ctermfg=0
 hi StatusLineTermNC ctermfg=0
 hi Constant ctermfg=5
+hi debugPC ctermbg=235
 
 hi DiffAdd    ctermfg=6 ctermbg=8
 hi DiffChange ctermfg=3 ctermbg=8
@@ -222,6 +223,12 @@ au VimEnter,WinEnter,BufWinEnter *.git/COMMIT_EDITMSG setlocal spell
 " #########################
 " Local vimrc files
 " #########################
+" source any extra vimrc that I didn't want in here.
+" i.e. machine specific stuff
+if filereadable(expand("~/.vimrc-extra"))
+    source ~/.vimrc-extra
+endif
+
 " use local vimrc files
 set exrc
 " prevent unsafe commands in project specific vimrcs 
