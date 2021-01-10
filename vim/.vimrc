@@ -51,8 +51,6 @@ Plugin 'tpope/vim-surround'
 
 " ctrlp
 Plugin 'ctrlpvim/ctrlp.vim'
-nnoremap <Leader>p :CtrlPTag<cr>
-nnoremap <Leader>P :CtrlPBuffer<cr>
 
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
@@ -144,6 +142,9 @@ nnoremap <C-H> <C-W><C-H>
 " Put from the 0 register (yank only)
 nnoremap <Leader>p "0p
 nnoremap <Leader>P "0P
+
+" CtrlP tags
+nnoremap <Leader><Tab> :CtrlPTag<cr>
 
 " #########################
 " Colors
