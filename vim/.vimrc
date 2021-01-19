@@ -222,7 +222,7 @@ function! s:Marks()
 endfunction
 
 command! Marks call s:Marks()
-nnoremap ` :Marks<Cr>
+nnoremap <Leader>c :Marks<Cr>
 
 " Spell check for commit messages
 au VimEnter,WinEnter,BufWinEnter *.git/COMMIT_EDITMSG setlocal spell
