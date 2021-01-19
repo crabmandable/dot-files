@@ -112,6 +112,12 @@ set re=1 " Use older version of regex engine (faster for ruby apparently)
 
 set splitbelow
 
+set wildmenu " tab complete commands
+
+set showcmd
+
+set copyindent " use tabs when a line is with tabs, spaces when a line is with spaces
+
 " #########################
 " Key maps
 " #########################
