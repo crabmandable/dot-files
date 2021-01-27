@@ -33,6 +33,9 @@ if confirm "Would you like to install the .vimrc?"; then
             ln -s $PWD/vim/.vimrc ~/.vimrc
         fi
     fi
+    if ! [ -f ~/.vim/bundle/Vundle.vim ]; then
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    fi
     confirm "Would you like to install/update vim plugins now?" && vim  +PluginClean! +PluginUpdate +PluginInstall +qall
 fi
 
