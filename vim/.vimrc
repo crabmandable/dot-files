@@ -37,8 +37,11 @@ let g:jsx_ext_required = 0
 
 Plugin 'airblade/vim-gitgutter'
 
-"Plugin 'vim-scripts/grep.vim'
-Plugin 'yegappan/grep'
+if has('nvim')
+    Plugin 'numkil/ag.nvim'
+else
+    Plugin 'yegappan/grep'
+endif
 
 Plugin 'scrooloose/nerdtree'
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.d$', '\.o$'] "ignore files in NERDTree
@@ -74,6 +77,10 @@ cnoreabbrev AH AS
 
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'vim-scripts/OmniCppComplete'
+
+if has('nvim')
+    " nvim only plugins go here
+endif
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -165,7 +172,7 @@ augroup END
 
 hi SpellCap ctermbg=237
 hi Pmenu ctermfg=white ctermbg=none
-hi PmenuSel ctermfg=black
+hi PmenuSel ctermfg=black ctermbg=white
 
 hi CursorLine cterm=NONE ctermbg=234
 hi CursorLineNr cterm=NONE ctermbg=232
