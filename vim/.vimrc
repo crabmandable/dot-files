@@ -177,9 +177,9 @@ hi PmenuSel ctermfg=black ctermbg=white
 hi CursorLine cterm=NONE ctermbg=234
 hi CursorLineNr cterm=NONE ctermbg=232
 hi Search ctermfg=0 ctermbg=3
-hi Visual ctermfg=15 ctermbg=23
+hi Visual ctermfg=15 ctermbg=cyan
 hi DiffChange ctermfg=0
-hi SpellBad ctermfg=15 ctermbg=200
+hi SpellBad ctermfg=15 ctermbg=red
 hi SpellRare ctermfg=0
 hi CursorColumn ctermfg=0
 hi ColorColumn ctermfg=0
@@ -198,6 +198,11 @@ hi link GitGutterChangeDelete DiffChange
 hi link GitGutterDelete DiffDelete
 
 hi ToolbarLine ctermfg=0
+
+hi WildMenu ctermfg=cyan
+hi Todo ctermfg=cyan
+
+hi Folded ctermbg=black
 
 " Tell git gutter to leave the sign column alone
 let g:gitgutter_override_sign_column_highlight = 0
