@@ -4,78 +4,72 @@ filetype off                  " required
 " #########################
 " Plugins
 " #########################
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
-Plugin 'KabbAmine/vCoolor.vim'
-Plugin 'lilydjwg/colorizer'
+Plug 'KabbAmine/vCoolor.vim'
+Plug 'lilydjwg/colorizer'
 
-Plugin 'moll/vim-node'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rbenv'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-fugitive'
-Plugin 'shumphrey/fugitive-gitlab.vim'
+Plug 'moll/vim-node'
+Plug 'leafgarland/typescript-vim'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rbenv'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-fugitive'
+Plug 'shumphrey/fugitive-gitlab.vim'
 
 " JS pluigins
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.d$', '\.o$'] "ignore files in NERDTree
 autocmd StdinReadPre * let s:std_in=1 "nerd tree close vim if nerd tree is only thing open
 nnoremap <C-n> :e .<CR>
 
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 
 " status bar
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " always on
 set laststatus=2
 let g:airline_theme='behelit'
 
-Plugin 'leafOfTree/vim-vue-plugin'
+Plug 'leafOfTree/vim-vue-plugin'
 
-Plugin 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 
-Plugin 'vim-scripts/a.vim'
+Plug 'vim-scripts/a.vim'
 cnoreabbrev AH AS
 
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'vim-scripts/OmniCppComplete'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'vim-scripts/OmniCppComplete'
 
 if has('nvim')
     " nvim only plugins go here
-    Plugin 'numkil/ag.nvim'
+    Plug 'numkil/ag.nvim'
 
     " Telescope
-    Plugin 'nvim-lua/popup.nvim'
-    Plugin 'nvim-lua/plenary.nvim'
-    Plugin 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
     nnoremap <C-p> :Telescope find_files<cr>
 else
-    Plugin 'yegappan/grep'
+    Plug 'yegappan/grep'
 
-    Plugin 'ctrlpvim/ctrlp.vim'
+    Plug 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_working_path_mode = 0
     let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
     if executable('rg')
@@ -85,7 +79,7 @@ else
     endif
 endif
 
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 
 " #########################
@@ -177,7 +171,7 @@ hi PmenuSel ctermfg=black ctermbg=white
 hi CursorLine cterm=NONE ctermbg=234
 hi CursorLineNr cterm=NONE ctermbg=232
 hi Search ctermfg=0 ctermbg=3
-hi Visual ctermfg=15 ctermbg=cyan
+hi Visual ctermfg=black ctermbg=cyan
 hi DiffChange ctermfg=0
 hi SpellBad ctermfg=15 ctermbg=red
 hi SpellRare ctermfg=0

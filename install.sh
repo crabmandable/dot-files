@@ -31,10 +31,17 @@ if confirm "Would you like to install the .vimrc?"; then
 
         ln -s $PWD/vim/.vimrc ~/.vimrc
     fi
-    if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    if [ ! -f ~/.vim/autoload/plug.vim ]; then
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
-    confirm "Would you like to install/update vim plugins now?" && vim  +PluginClean! +PluginUpdate +PluginInstall +qall
+    if confirm "Would you like to install/update vim plugins now?"; then 
+        if which nvim 2>&1 >/dev/null; then
+            nvim +PlugClean! +PlugUpdate +PlugInstall +qall
+        else
+            vim  +PlugClean! +PlugUpdate +PlugInstall +qall
+        fi
+    fi
 
     if ! which rg 2>&1 >/dev/null; then
         echo Don\'t forget to install ripgrep too for faster searching
