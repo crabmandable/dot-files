@@ -37,6 +37,7 @@ if confirm "Would you like to install the .vimrc?"; then
         echo "The nvim/init.vim is already installed"
     else
         rm -f $nviminit
+        mkdir -p ~/.config/nvim
         ln -s $PWD/nvim/init.vim $nviminit
     fi
 
