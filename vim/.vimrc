@@ -10,28 +10,31 @@ call plug#begin('~/.vim/plugged')
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'lilydjwg/colorizer'
 
-Plug 'moll/vim-node'
 Plug 'leafgarland/typescript-vim'
+
 Plug 'kana/vim-textobj-user'
-Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rbenv'
-Plug 'tpope/vim-bundler'
+
+Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'tpope/vim-rbenv', { 'for': 'ruby' }
+Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+
 Plug 'tpope/vim-fugitive'
 Plug 'shumphrey/fugitive-gitlab.vim'
 
 " JS pluigins
-Plug 'jelera/vim-javascript-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'moll/vim-node', { 'for': 'javascript' }
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 let g:jsx_ext_required = 0
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.d$', '\.o$'] "ignore files in NERDTree
 autocmd StdinReadPre * let s:std_in=1 "nerd tree close vim if nerd tree is only thing open
 nnoremap <C-n> :e .<CR>
@@ -54,8 +57,8 @@ Plug 'dense-analysis/ale'
 Plug 'vim-scripts/a.vim'
 cnoreabbrev AH AS
 
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'vim-scripts/OmniCppComplete'
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
+Plug 'vim-scripts/OmniCppComplete', { 'for': ['cpp', 'c'] }
 
 if has('nvim')
     " nvim only plugins go here
