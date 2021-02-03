@@ -35,6 +35,13 @@ if confirm "Would you like to install the .vimrc?"; then
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     fi
     confirm "Would you like to install/update vim plugins now?" && vim  +PluginClean! +PluginUpdate +PluginInstall +qall
+
+    if ! which rg 2>&1 >/dev/null; then
+        echo Don\'t forget to install ripgrep too for faster searching
+    fi
+    if ! which bat 2>&1 >/dev/null; then
+        echo Don\'t forget to install bat too for previews with highlighting
+    fi
 fi
 
 echo "Finished"

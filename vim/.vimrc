@@ -37,12 +37,6 @@ let g:jsx_ext_required = 0
 
 Plugin 'airblade/vim-gitgutter'
 
-if has('nvim')
-    Plugin 'numkil/ag.nvim'
-else
-    Plugin 'yegappan/grep'
-endif
-
 Plugin 'scrooloose/nerdtree'
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.d$', '\.o$'] "ignore files in NERDTree
 autocmd StdinReadPre * let s:std_in=1 "nerd tree close vim if nerd tree is only thing open
@@ -51,15 +45,6 @@ nnoremap <C-n> :e .<CR>
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-
-" ctrlp
-Plugin 'ctrlpvim/ctrlp.vim'
-
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
 
 " status bar
 Plugin 'vim-airline/vim-airline'
@@ -80,6 +65,24 @@ Plugin 'vim-scripts/OmniCppComplete'
 
 if has('nvim')
     " nvim only plugins go here
+    Plugin 'numkil/ag.nvim'
+
+    " Telescope
+    Plugin 'nvim-lua/popup.nvim'
+    Plugin 'nvim-lua/plenary.nvim'
+    Plugin 'nvim-telescope/telescope.nvim'
+    nnoremap <C-p> :Telescope find_files<cr>
+else
+    Plugin 'yegappan/grep'
+
+    Plugin 'ctrlpvim/ctrlp.vim'
+    let g:ctrlp_working_path_mode = 0
+    let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+    if executable('rg')
+      let g:ctrlp_user_command = 'rg %s -l --nocolor -g ""'
+    elseif executable('ag')
+      let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    endif
 endif
 
 call vundle#end()            " required
@@ -155,9 +158,6 @@ nnoremap <C-H> <C-W><C-H>
 " Put from the 0 register (yank only)
 nnoremap <Leader>p "0p
 nnoremap <Leader>P "0P
-
-" CtrlP tags
-nnoremap <Leader><Tab> :CtrlPTag<cr>
 
 " #########################
 " Colors
