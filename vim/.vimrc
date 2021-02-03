@@ -69,6 +69,8 @@ if has('nvim')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     nnoremap <C-p> :Telescope find_files<cr>
+
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 else
     Plug 'yegappan/grep'
 

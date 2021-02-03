@@ -22,15 +22,24 @@ if confirm "Would you like to install the .vimrc?"; then
         echo "The .vimrc is already installed"
     else
         # if theres already a vimrc, check about moving it to .vimrc-extra
-        if confirm "A .vimrc already exists here, would you like to move it to '.vimrc-extra'? (saying no deletes it)"; then
+        if [ -f ~/.vimrc ] && confirm "A .vimrc already exists here, would you like to move it to '.vimrc-extra'? (saying no deletes it)"; then
             confirm "Would you like to manually edit the old vimrc first?" && vim ~/.vimrc
             mv ~/.vimrc ~/.vimrc-extra
         else
-            rm ~/.vimrc
+            rm -f ~/.vimrc
         fi
 
         ln -s $PWD/vim/.vimrc ~/.vimrc
     fi
+
+    nviminit=~/.config/nvim/init.vim
+    if [ -f $nviminit ] && [ -L $nviminit ] && [ $(readlink $nviminit) -ef $PWD/nvim/init.vim ]; then
+        echo "The nvim/init.vim is already installed"
+    else
+        rm -f $nviminit
+        ln -s $PWD/nvim/init.vim $nviminit
+    fi
+
     if [ ! -f ~/.vim/autoload/plug.vim ]; then
         curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
