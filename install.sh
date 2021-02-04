@@ -14,7 +14,9 @@ confirm() {
             ;;
     esac
 }
-
+has_nvim() {
+    which nvim 2>&1 >/dev/null;
+}
 # VIM
 if confirm "Would you like to install the .vimrc?"; then
     # if its already installed do nothing
@@ -35,7 +37,7 @@ if confirm "Would you like to install the .vimrc?"; then
     nviminit=~/.config/nvim/init.vim
     if [ -f $nviminit ] && [ -L $nviminit ] && [ $(readlink $nviminit) -ef $PWD/nvim/init.vim ]; then
         echo "The nvim/init.vim is already installed"
-    else
+    elif has_nvim; then
         rm -f $nviminit
         mkdir -p ~/.config/nvim
         ln -s $PWD/nvim/init.vim $nviminit
@@ -46,7 +48,7 @@ if confirm "Would you like to install the .vimrc?"; then
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
     if confirm "Would you like to install/update vim plugins now?"; then 
-        if which nvim 2>&1 >/dev/null; then
+        if has_nvim; then
             nvim +PlugClean! +PlugUpdate +PlugInstall +qall
         else
             vim  +PlugClean! +PlugUpdate +PlugInstall +qall
