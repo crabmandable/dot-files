@@ -158,6 +158,11 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <Leader>p "0p
 nnoremap <Leader>P "0P
 
+" Esc exits insert mode in vim terminal:
+tnoremap <Esc> <C-\><C-n>
+" simulate i_CTRL-R in terminal-mode: >
+tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+
 " #########################
 " Colors
 " #########################
