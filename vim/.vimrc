@@ -37,7 +37,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.d$', '\.o$'] "ignore files in NERDTree
 autocmd StdinReadPre * let s:std_in=1 "nerd tree close vim if nerd tree is only thing open
-nnoremap <C-n> :e .<CR>
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -68,9 +67,10 @@ if has('nvim')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    nnoremap <C-p> :Telescope find_files<cr>
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+    Plug 'voldikss/vim-floaterm'
 else
     Plug 'yegappan/grep'
 
@@ -163,6 +163,23 @@ tnoremap <Esc> <C-\><C-n>
 " simulate i_CTRL-R in terminal-mode: >
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
+" Telescope stuff
+function! s:MapTelescopeKeys()
+    nnoremap <C-p> :Telescope find_files<cr>
+    nnoremap <Leader>b :Telescope buffers<cr>
+endfunction
+autocmd VimEnter * if exists(":Telescope") | call s:MapTelescopeKeys() | endif
+
+
+" Floatterm stuff
+function! s:MapFloatermKeys()
+    nnoremap <C-n> :FloatermToggle<cr>
+    nnoremap <leader>m :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make -j $(nproc)<cr>
+    nnoremap <leader>M :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make clean && make -j $(nproc)<cr>
+    nnoremap <leader>o :FloatermNew --height=0.6 --width=0.4 --wintype=float --name=files --position=topleft --autoclose=2 ranger <cr>
+endfunction
+autocmd VimEnter * if exists(":FloatermNew") | call s:MapFloatermKeys() | endif
+
 " #########################
 " Colors
 " #########################
@@ -181,7 +198,7 @@ hi PmenuSel ctermfg=black ctermbg=white
 hi CursorLine cterm=NONE ctermbg=234
 hi CursorLineNr cterm=NONE ctermbg=232
 hi Search ctermfg=0 ctermbg=3
-hi Visual ctermfg=black ctermbg=cyan
+hi Visual ctermfg=black ctermbg=10
 hi DiffChange ctermfg=0
 hi SpellBad ctermfg=15 ctermbg=red
 hi SpellRare ctermfg=0
