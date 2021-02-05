@@ -173,9 +173,13 @@ autocmd VimEnter * if exists(":Telescope") | call s:MapTelescopeKeys() | endif
 
 " Floatterm stuff
 function! s:MapFloatermKeys()
+    " Toggle term
     nnoremap <C-n> :FloatermToggle<cr>
-    nnoremap <leader>m :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make -j $(nproc)<cr>
-    nnoremap <leader>M :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make clean && make -j $(nproc)<cr>
+    " cmake && make
+    nnoremap <leader>m :FloatermNew --autoclose=1 cmake -DCMAKE_BUILD_TYPE=Debug . && make -j $(nproc)<cr>
+    " cmake && make clean && make
+    nnoremap <leader>M :FloatermNew --autoclose=1 cmake -DCMAKE_BUILD_TYPE=Debug . && make clean && make -j $(nproc)<cr>
+    " ranger
     nnoremap <leader>o :FloatermNew --height=0.6 --width=0.4 --wintype=float --name=files --position=topleft --autoclose=2 ranger <cr>
 endfunction
 autocmd VimEnter * if exists(":FloatermNew") | call s:MapFloatermKeys() | endif
@@ -198,7 +202,7 @@ hi PmenuSel ctermfg=black ctermbg=white
 hi CursorLine cterm=NONE ctermbg=234
 hi CursorLineNr cterm=NONE ctermbg=232
 hi Search ctermfg=0 ctermbg=3
-hi Visual ctermfg=black ctermbg=10
+hi Visual ctermbg=8 ctermfg=11
 hi DiffChange ctermfg=0
 hi SpellBad ctermfg=15 ctermbg=red
 hi SpellRare ctermfg=0
