@@ -135,7 +135,7 @@ set belloff=esc " no bell when hitting esc in normal mode
 
 set matchpairs+=<:>
 
-set listchars=tab:>·,trail:~,extends:>,precedes:<
+set listchars=tab:>·,trail:_,extends:>,precedes:<
 set list
 
 " #########################
@@ -243,6 +243,8 @@ hi Folded ctermbg=black
 " Tell git gutter to leave the sign column alone
 let g:gitgutter_override_sign_column_highlight = 0
 hi SignColumn ctermbg=None
+
+hi Whitespace ctermfg=red
 
 " #########################
 " Autocmds & Custom functions
