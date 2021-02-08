@@ -15,7 +15,7 @@ confirm() {
     esac
 }
 has_nvim() {
-    which nvim 2>&1 >/dev/null;
+    command -v nvim >/dev/null;
 }
 # VIM
 if confirm "Would you like to install the .vimrc?"; then
@@ -55,10 +55,10 @@ if confirm "Would you like to install the .vimrc?"; then
         fi
     fi
 
-    if ! which rg 2>&1 >/dev/null; then
+    if ! command -v rg >/dev/null; then
         echo Don\'t forget to install ripgrep too for faster searching
     fi
-    if ! which bat 2>&1 >/dev/null; then
+    if ! command -v bat >/dev/null; then
         echo Don\'t forget to install bat too for previews with highlighting
     fi
 fi
