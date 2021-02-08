@@ -176,9 +176,9 @@ function! s:MapFloatermKeys()
     " Toggle term
     nnoremap <C-n> :FloatermToggle<cr>
     " cmake && make
-    nnoremap <leader>m :FloatermNew --autoclose=1 cmake -DCMAKE_BUILD_TYPE=Debug . && make -j $(nproc)<cr>
+    nnoremap <leader>m :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make -j $(nproc)<cr>
     " cmake && make clean && make
-    nnoremap <leader>M :FloatermNew --autoclose=1 cmake -DCMAKE_BUILD_TYPE=Debug . && make clean && make -j $(nproc)<cr>
+    nnoremap <leader>M :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make clean && make -j $(nproc)<cr>
     " ranger
     nnoremap <leader>o :FloatermNew --height=0.6 --width=0.4 --wintype=float --name=files --position=topleft --autoclose=2 ranger <cr>
 endfunction
@@ -188,6 +188,7 @@ autocmd VimEnter * if exists(":FloatermNew") | call s:MapFloatermKeys() | endif
 " Colors
 " #########################
 set t_Co=256
+colorscheme elflord
 
 augroup CursorLine
   au!
@@ -247,7 +248,7 @@ function! InsertHeaderGuard()
     exe "normal O"
 endfunction
 
-autocmd bufnewfile *.h,*.hpp exe "call InsertHeaderGuard()"
+autocmd! bufnewfile *.h,*.hpp exe "call InsertHeaderGuard()"
 
 " Display a list of the current marks when jumping to mark
 function! s:Marks()
@@ -275,6 +276,7 @@ endif
 
 " use local vimrc files
 set exrc
+
 " prevent unsafe commands in project specific vimrcs 
 " should be at the end of this file!
 set secure
