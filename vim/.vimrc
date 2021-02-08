@@ -274,6 +274,7 @@ nnoremap <Leader>c :Marks<Cr>
 
 " Spell check for commit messages
 au VimEnter,WinEnter,BufWinEnter *COMMIT_EDITMSG setlocal spell
+au VimEnter,WinEnter,BufWinEnter *COMMIT_EDITMSG setlocal nolist
 
 " #########################
 " Local vimrc files
