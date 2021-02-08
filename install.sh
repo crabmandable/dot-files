@@ -6,7 +6,7 @@ confirm() {
     # call with a prompt string or use a default
     read -r -p "${1:-Are you sure?} [Y/n] " response
     case "$response" in
-        [nN][oO]|[nN]) 
+        [nN][oO]|[nN])
             false
             ;;
         *)
@@ -47,7 +47,7 @@ if confirm "Would you like to install the .vimrc?"; then
         curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
-    if confirm "Would you like to install/update vim plugins now?"; then 
+    if confirm "Would you like to install/update vim plugins now?"; then
         if has_nvim; then
             nvim +PlugClean! +PlugUpdate +PlugInstall +qall
         else
