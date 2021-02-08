@@ -109,6 +109,7 @@ set splitbelow
 set backspace=indent,eol,start
 
 set hlsearch
+set incsearch
 
 set wildignore+=node_modules
 set wildignore+=*.o
@@ -126,6 +127,16 @@ set wildmenu " tab complete commands
 set showcmd
 
 set copyindent " use tabs when a line is with tabs, spaces when a line is with spaces
+
+set showmatch " show matching brace when inserting a closeing brace
+
+set noerrorbells
+set belloff=esc " no bell when hitting esc in normal mode
+
+set matchpairs+=<:>
+
+set listchars=tab:>·,trail:_,extends:>,precedes:<
+set list
 
 " #########################
 " Key maps
@@ -232,7 +243,9 @@ hi Folded ctermbg=black
 
 " Tell git gutter to leave the sign column alone
 let g:gitgutter_override_sign_column_highlight = 0
-highlight SignColumn ctermbg=None
+hi SignColumn ctermbg=None
+
+hi Whitespace ctermfg=red
 
 " #########################
 " Autocmds & Custom functions
@@ -264,6 +277,7 @@ nnoremap <Leader>c :Marks<Cr>
 
 " Spell check for commit messages
 au VimEnter,WinEnter,BufWinEnter *COMMIT_EDITMSG setlocal spell
+au VimEnter,WinEnter,BufWinEnter *COMMIT_EDITMSG setlocal nolist
 
 " #########################
 " Local vimrc files
