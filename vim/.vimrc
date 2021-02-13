@@ -34,9 +34,13 @@ let g:jsx_ext_required = 0
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-let NERDTreeIgnore=['\.pyc$', '\~$', '\.d$', '\.o$'] "ignore files in NERDTree
-autocmd StdinReadPre * let s:std_in=1 "nerd tree close vim if nerd tree is only thing open
+Plug 'francoiscabrol/ranger.vim'
+if has('nvim')
+    " ranger.vim requires this in nvim
+    Plug 'rbgrouleff/bclose.vim'
+endif
+let g:ranger_map_keys = 0
+let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -59,29 +63,22 @@ cnoreabbrev AH AS
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
 Plug 'vim-scripts/OmniCppComplete', { 'for': ['cpp', 'c'] }
 
+Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 if has('nvim')
     " nvim only plugins go here
     Plug 'numkil/ag.nvim'
-
-    " Telescope
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
     Plug 'voldikss/vim-floaterm'
 else
     Plug 'yegappan/grep'
-
-    Plug 'ctrlpvim/ctrlp.vim'
-    let g:ctrlp_working_path_mode = 0
-    let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-    if executable('rg')
-      let g:ctrlp_user_command = 'rg %s -l --nocolor -g ""'
-    elseif executable('ag')
-      let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    endif
 endif
 
 call plug#end()            " required
@@ -174,14 +171,6 @@ tnoremap <Esc> <C-\><C-n>
 " simulate i_CTRL-R in terminal-mode: >
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
-" Telescope stuff
-function! s:MapTelescopeKeys()
-    nnoremap <C-p> :Telescope find_files<cr>
-    nnoremap <Leader>b :Telescope buffers<cr>
-endfunction
-autocmd VimEnter * if exists(":Telescope") | call s:MapTelescopeKeys() | endif
-
-
 " Floatterm stuff
 function! s:MapFloatermKeys()
     " Toggle term
@@ -191,9 +180,11 @@ function! s:MapFloatermKeys()
     " cmake && make clean && make
     nnoremap <leader>M :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make clean && make -j $(nproc)<cr>
     " ranger
-    nnoremap <leader>o :FloatermNew --height=0.8 --width=0.8 --disposable --wintype=float --name=files --position=center --autoclose=2 ranger <cr>
+    " nnoremap <leader>o :FloatermNew --height=0.8 --width=0.8 --disposable --wintype=float --name=files --position=center --autoclose=2 ranger <cr>
 endfunction
 autocmd VimEnter * if exists(":FloatermNew") | call s:MapFloatermKeys() | endif
+
+nnoremap <leader>f :RangerWorkingDirectory<CR>
 
 " #########################
 " Colors
