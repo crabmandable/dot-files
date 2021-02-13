@@ -191,7 +191,7 @@ function! s:MapFloatermKeys()
     " cmake && make clean && make
     nnoremap <leader>M :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make clean && make -j $(nproc)<cr>
     " ranger
-    nnoremap <leader>o :FloatermNew --height=0.6 --width=0.4 --wintype=float --name=files --position=topleft --autoclose=2 ranger <cr>
+    nnoremap <leader>o :FloatermNew --height=0.8 --width=0.8 --disposable --wintype=float --name=files --position=center --autoclose=2 ranger <cr>
 endfunction
 autocmd VimEnter * if exists(":FloatermNew") | call s:MapFloatermKeys() | endif
 
