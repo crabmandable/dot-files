@@ -273,6 +273,10 @@ nnoremap <Leader>c :Marks<Cr>
 au VimEnter,WinEnter,BufWinEnter *COMMIT_EDITMSG setlocal spell
 au VimEnter,WinEnter,BufWinEnter *COMMIT_EDITMSG setlocal nolist
 
+" Color column for markdown
+au VimEnter,WinEnter,BufWinEnter *.md setlocal colorcolumn=80
+au VimEnter,WinEnter,BufWinEnter *.md setlocal spell
+
 " #########################
 " Local vimrc files
 " #########################
