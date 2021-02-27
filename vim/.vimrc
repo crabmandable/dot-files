@@ -63,6 +63,8 @@ cnoreabbrev AH AS
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
 Plug 'vim-scripts/OmniCppComplete', { 'for': ['cpp', 'c'] }
 
+Plug 'farmergreg/vim-lastplace'
+
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
