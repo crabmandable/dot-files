@@ -189,7 +189,7 @@ function! s:MapFloatermKeys()
 endfunction
 autocmd VimEnter * if exists(":FloatermNew") | call s:MapFloatermKeys() | endif
 
-nnoremap <leader>f :RangerWorkingDirectory<CR>
+nnoremap <leader>f :Ranger<CR>
 
 " #########################
 " Colors
