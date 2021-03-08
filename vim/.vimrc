@@ -87,6 +87,8 @@ if has('nvim')
 
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     let g:deoplete#enable_at_startup = 1
+
+    Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh' }
 else
     Plug 'yegappan/grep'
 endif
