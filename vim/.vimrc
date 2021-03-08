@@ -188,9 +188,9 @@ function! s:MapFloatermKeys()
     " Toggle term
     nnoremap <C-n> :FloatermToggle<cr>
     " cmake && make
-    nnoremap <leader>m :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make -j $(nproc)<cr>
+    " nnoremap <leader>m :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make -j $(nproc)<cr>
     " cmake && make clean && make
-    nnoremap <leader>M :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make clean && make -j $(nproc)<cr>
+    " nnoremap <leader>M :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make clean && make -j $(nproc)<cr>
     " ranger
     " nnoremap <leader>o :FloatermNew --height=0.8 --width=0.8 --disposable --wintype=float --name=files --position=center --autoclose=2 ranger <cr>
 endfunction
