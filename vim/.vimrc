@@ -32,6 +32,11 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 let g:jsx_ext_required = 0
 
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
+
 Plug 'airblade/vim-gitgutter'
 
 Plug 'francoiscabrol/ranger.vim'
