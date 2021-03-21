@@ -75,6 +75,10 @@ if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
+if executable('npm')
+    Plug 'shime/vim-livedown', { 'do': ':!npm install -g livedown' }
+endif
+
 Plug 'rust-lang/rust.vim'
 
 if has('nvim')
