@@ -153,6 +153,8 @@ set matchpairs+=<:>
 set listchars=tab:>·,trail:_,extends:>,precedes:<
 set list
 
+packadd termdebug
+
 " #########################
 " Key maps
 " #########################
