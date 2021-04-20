@@ -191,6 +191,9 @@ tnoremap <Esc> <C-\><C-n>
 " simulate i_CTRL-R in terminal-mode: >
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
+" sub the word under the cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
 " Floatterm stuff
 function! s:MapFloatermKeys()
     " Toggle term
