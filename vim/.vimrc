@@ -153,6 +153,8 @@ set matchpairs+=<:>
 set listchars=tab:>·,trail:_,extends:>,precedes:<
 set list
 
+packadd termdebug
+
 " #########################
 " Key maps
 " #########################
@@ -166,8 +168,8 @@ map <Leader>q <F1>
 nnoremap <F2> :noh<CR>
 map <Leader>w <F2>
 
-" Close quick fix & location list
-nnoremap <F3> :ccl<CR>:lcl<CR>
+" Close quick fix & location list & preview window
+nnoremap <F3> :ccl<CR>:lcl<CR>:pc<CR>
 map <Leader>e <F3>
 
 " resize split vertically
