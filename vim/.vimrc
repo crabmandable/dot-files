@@ -209,7 +209,7 @@ autocmd VimEnter * if exists(":FloatermNew") | call s:MapFloatermKeys() | endif
 
 nnoremap <leader>f :Ranger<CR>
 
-nnoremap <leader><BS> <C-^>
+nnoremap <leader><Tab> <C-^>
 
 " #########################
 " Colors
