@@ -63,4 +63,27 @@ if confirm "Would you like to install the .vimrc?"; then
     fi
 fi
 
+
+if command -v kitty >/dev/null; then
+    if confirm "Would you like to install the kitty config?"; then
+        if [ -f ~/.config/kitty/kitty.conf ]; then
+            if confirm "kitty.conf already exists. Would you like to replace it?"; then
+                rm ~/.config/kitty/kitty.conf
+                ln -s $PWD/kitty/kitty.conf ~/.config/kitty/kitty.conf
+            fi
+        else
+            ln -s $PWD/kitty/kitty.conf ~/.config/kitty/kitty.conf
+        fi
+
+        if [ -f ~/.config/kitty/colors.conf ]; then
+            if confirm "kitty colors.conf already exists. Would you like to replace it?"; then
+                rm ~/.config/kitty/colors.conf
+                ln -s $PWD/kitty/colors.conf ~/.config/kitty/colors.conf
+            fi
+        else
+            ln -s $PWD/kitty/colors.conf ~/.config/kitty/colors.conf
+        fi
+    fi
+fi
+
 echo "Finished"
