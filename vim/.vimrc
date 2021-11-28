@@ -182,6 +182,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+nmap <silent> <leader>ah :leftabove vnew<cr>
+nmap <silent> <leader>al :rightbelow vnew<cr>
+nmap <silent> <leader>ak :leftabove new<cr>
+nmap <silent> <leader>aj :rightbelow new<cr>
+
 " Put from the 0 register (yank only)
 nnoremap <Leader>p "0p
 nnoremap <Leader>P "0P
@@ -311,6 +316,6 @@ endif
 " use local vimrc files
 set exrc
 
-" prevent unsafe commands in project specific vimrcs 
+" prevent unsafe commands in project specific vimrcs
 " should be at the end of this file!
 set secure
