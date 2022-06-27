@@ -182,10 +182,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nmap <silent> <leader>ah :leftabove vnew<cr>
-nmap <silent> <leader>al :rightbelow vnew<cr>
-nmap <silent> <leader>ak :leftabove new<cr>
-nmap <silent> <leader>aj :rightbelow new<cr>
+nmap <silent> <leader>ah :vsplit<cr>
+nmap <silent> <leader>al :vsplit<cr><C-W>l
+nmap <silent> <leader>ak :split<cr><C-W>k
+nmap <silent> <leader>aj :split<cr>
 
 " Put from the 0 register (yank only)
 nnoremap <Leader>p "0p
