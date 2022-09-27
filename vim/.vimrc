@@ -60,13 +60,10 @@ let g:airline_theme='behelit'
 
 Plug 'leafOfTree/vim-vue-plugin'
 
-Plug 'dense-analysis/ale'
-
 Plug 'vim-scripts/a.vim'
 cnoreabbrev AH AS
 
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['cpp', 'c'] }
-Plug 'vim-scripts/OmniCppComplete', { 'for': ['cpp', 'c'] }
 
 Plug 'farmergreg/vim-lastplace'
 
@@ -83,6 +80,16 @@ endif
 
 Plug 'rust-lang/rust.vim'
 
+
+" Plug 'dense-analysis/ale'
+" let g:ale_linters = {
+"             \ 'python': ['pylint'],
+"             \ 'vim': ['vint'],
+"             \ 'cpp': ['clang'],
+"             \ 'c': ['clang']
+"             \}
+" let g:ale_cpp_cc_options = '-std=c++20 -Wall'
+
 if has('nvim')
     " nvim only plugins go here
     Plug 'numkil/ag.nvim'
@@ -91,10 +98,27 @@ if has('nvim')
 
     Plug 'voldikss/vim-floaterm'
 
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    let g:deoplete#enable_at_startup = 1
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-cmake', 'coc-clangd']
+    let b:coc_suggest_disable = 1
+    inoremap <silent><expr> <C-n>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ coc#refresh()
+
+    " Make <CR> to accept selected completion item or notify coc.nvim to format
+    " <C-g>u breaks current undo, please make your own choice.
+    inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+    nmap <leader><space>  <Plug>(coc-fix-current)
+
+    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " let g:deoplete#enable_at_startup = 1
+    " Plug 'deoplete-plugins/deoplete-clang'
 
     Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh' }
+
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 else
     Plug 'yegappan/grep'
 endif
