@@ -315,7 +315,12 @@ function! InsertHeaderGuard()
     exe "normal O"
 endfunction
 
-autocmd! bufnewfile *.h,*.hpp exe "call InsertHeaderGuard()"
+function! InsertPragmaOnce()
+    exe "normal gg"
+    exe "normal O#pragma once"
+endfunction
+
+autocmd! bufnewfile *.h,*.hpp exe "call InsertPragmaOnce()"
 
 " Display a list of the current marks when jumping to mark
 function! s:Marks()
