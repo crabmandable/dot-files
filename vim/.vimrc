@@ -177,6 +177,15 @@ set matchpairs+=<:>
 set listchars=tab:>·,trail:_,extends:>,precedes:<
 set list
 
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" Align switch statements with case labels
+set cino=l1
+" Scope declarations aligned with block
+set cino=g0
+
 packadd termdebug
 
 " #########################
