@@ -342,6 +342,18 @@ au VimEnter,WinEnter,BufWinEnter *COMMIT_EDITMSG setlocal nolist
 au VimEnter,WinEnter,BufWinEnter *.md setlocal colorcolumn=80
 au VimEnter,WinEnter,BufWinEnter *.md setlocal spell
 
+" Strip trailing whitespace on save
+function! StripTrailingWhitespace()
+    " Save cursor position
+    let l:save = winsaveview()
+    " Remove trailing whitespace
+    %s/\s\+$//e
+    " Move cursor to original position
+    call winrestview(l:save)
+    echo "Stripped trailing whitespace"
+endfunction
+au BufWritePre * exe "call StripTrailingWhitespace()"
+
 " #########################
 " Local vimrc files
 " #########################
