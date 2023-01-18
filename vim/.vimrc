@@ -24,6 +24,7 @@ Plug 'tpope/vim-bundler', { 'for': 'ruby' }
 
 Plug 'tpope/vim-fugitive'
 Plug 'shumphrey/fugitive-gitlab.vim'
+let g:fugitive_gitlab_domains = ['https://gl.hubsecurity.com']
 
 " JS pluigins
 Plug 'moll/vim-node', { 'for': 'javascript' }
@@ -300,6 +301,8 @@ let g:gitgutter_override_sign_column_highlight = 0
 hi SignColumn ctermbg=None
 
 hi Whitespace ctermfg=red
+
+hi CocInlayHint ctermfg=8
 
 " #########################
 " Autocmds & Custom functions
