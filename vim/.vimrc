@@ -75,29 +75,13 @@ if executable('ag')
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-if executable('npm')
-    Plug 'shime/vim-livedown', { 'do': ':!npm install -g livedown' }
-endif
-
 Plug 'rust-lang/rust.vim'
-
-
-" Plug 'dense-analysis/ale'
-" let g:ale_linters = {
-"             \ 'python': ['pylint'],
-"             \ 'vim': ['vint'],
-"             \ 'cpp': ['clang'],
-"             \ 'c': ['clang']
-"             \}
-" let g:ale_cpp_cc_options = '-std=c++20 -Wall'
 
 if has('nvim')
     " nvim only plugins go here
     Plug 'numkil/ag.nvim'
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-
-    Plug 'voldikss/vim-floaterm'
 
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-cmake', 'coc-clangd']
@@ -122,6 +106,15 @@ if has('nvim')
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 else
     Plug 'yegappan/grep'
+
+    Plug 'dense-analysis/ale'
+    let g:ale_linters = {
+                \ 'python': ['pylint'],
+                \ 'vim': ['vint'],
+                \ 'cpp': ['clang'],
+                \ 'c': ['clang']
+                \}
+    let g:ale_cpp_cc_options = '-std=c++20 -Wall'
 endif
 
 call plug#end()            " required
@@ -233,19 +226,6 @@ tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 " sub the word under the cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
-" Floatterm stuff
-function! s:MapFloatermKeys()
-    " Toggle term
-    nnoremap <C-n> :FloatermToggle<cr>
-    " cmake && make
-    " nnoremap <leader>m :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make -j $(nproc)<cr>
-    " cmake && make clean && make
-    " nnoremap <leader>M :FloatermNew --autoclose=0 cmake -DCMAKE_BUILD_TYPE=Debug . && make clean && make -j $(nproc)<cr>
-    " ranger
-    " nnoremap <leader>o :FloatermNew --height=0.8 --width=0.8 --disposable --wintype=float --name=files --position=center --autoclose=2 ranger <cr>
-endfunction
-autocmd VimEnter * if exists(":FloatermNew") | call s:MapFloatermKeys() | endif
-
 nnoremap <leader>f :Ranger<CR>
 
 nnoremap <leader><Tab> <C-^>
@@ -254,7 +234,7 @@ nnoremap <leader><Tab> <C-^>
 " Colors
 " #########################
 set t_Co=256
-colorscheme elflord
+" colorscheme elflord
 
 augroup CursorLine
   au!
