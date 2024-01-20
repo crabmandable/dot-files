@@ -10,4 +10,10 @@ vim.keymap.set("n", "<leader>al", "<cmd>vsplit<cr>")
 vim.keymap.set("n", "<leader>ak", "<cmd>split<cr><C-W>k")
 vim.keymap.set("n", "<leader>aj", "<cmd>split<cr>")
 
-vim.keymap.set("n", "<Leader>v", "<cmd>noh<cr>")
+-- close location & quick fix and stop highlighting search
+vim.keymap.set("n", "<Leader>v", "<cmd>pc<cr><cmd>lcl<cr><cmd>ccl<cr><cmd>noh<cr>")
+
+vim.keymap.set("n", "<Leader>aa", "<cmd>Ouroboros<cr>")
+
+vim.keymap.set("n", "<Leader>fw", [["zyiw:exe "Ag ".@z.""<cr><cr><cr>]])
+vim.keymap.set("n", "<Leader>f<space>", ":Ag ")
