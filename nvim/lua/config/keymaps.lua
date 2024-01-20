@@ -17,3 +17,6 @@ vim.keymap.set("n", "<Leader>aa", "<cmd>Ouroboros<cr>")
 
 vim.keymap.set("n", "<Leader>fw", [["zyiw:exe "Ag ".@z.""<cr><cr><cr>]])
 vim.keymap.set("n", "<Leader>f<space>", ":Ag ")
+
+-- sub the word under the cursor
+vim.keymap.set("n", "<Leader>ar", [[:%s/\<<C-r><C-w>\>/]])

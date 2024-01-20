@@ -24,3 +24,22 @@ ranger_nvim.setup({
 })
 
 -- vim.api.nvim_create_user_command("Rg", "lua vim.cmd('silent grep! test | copen')", {})
+
+vim.cmd([[
+  set copyindent " use tabs when a line is with tabs, spaces when a line is with spaces
+
+  set showmatch " show matching brace when inserting a closeing brace
+
+  set noerrorbells
+  set belloff=esc " no bell when hitting esc in normal mode
+
+  set matchpairs+=<:>
+
+  " Align switch statements with case labels
+  set cino=l1
+  " Scope declarations aligned with block
+  set cino=g0
+
+  set listchars=tab:>·,trail:_,extends:>,precedes:<
+  set list
+]])
