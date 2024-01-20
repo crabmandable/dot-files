@@ -83,19 +83,28 @@ if has('nvim')
 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-cmake', 'coc-clangd']
-    let b:coc_suggest_disable = 1
-    inoremap <silent><expr> <C-n>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ coc#refresh()
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-cmake', 'coc-clangd']
+    " let b:coc_suggest_disable = 1
+    " inoremap <silent><expr> <C-n>
+    "   \ coc#pum#visible() ? coc#pum#next(1) :
+    "   \ coc#refresh()
 
-    " Make <CR> to accept selected completion item or notify coc.nvim to format
-    " <C-g>u breaks current undo, please make your own choice.
-    inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    " " Make <CR> to accept selected completion item or notify coc.nvim to format
+    " " <C-g>u breaks current undo, please make your own choice.
+    " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+    "             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-    nmap <leader><space>  <Plug>(coc-fix-current)
+    " nmap <leader><space>  <Plug>(coc-fix-current)
+    "
+    Plug 'dense-analysis/ale'
+    let g:ale_linters = {
+                \ 'python': ['pylint'],
+                \ 'vim': ['vint'],
+                \ 'cpp': ['clang'],
+                \ 'c': ['clang']
+                \}
+    let g:ale_cpp_cc_options = '-std=c++20 -Wall'
 
     " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     " let g:deoplete#enable_at_startup = 1
