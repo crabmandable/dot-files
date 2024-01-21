@@ -222,6 +222,7 @@ nmap <silent> <leader>ah :vsplit<cr>
 nmap <silent> <leader>al :vsplit<cr><C-W>l
 nmap <silent> <leader>ak :split<cr><C-W>k
 nmap <silent> <leader>aj :split<cr>
+nmap <silent> <leader>aa :A<cr>
 
 " Put from the 0 register (yank only)
 nnoremap <Leader>p "0p
@@ -325,6 +326,13 @@ endfunction
 
 command! Marks call s:Marks()
 nnoremap <Leader>c :Marks<Cr>
+
+" Yank current line into clipboard
+function! s:CopyLn()
+    call setreg('+', expand("%:t") . ":" . line("."))
+endfunction
+command! CopyLn call s:CopyLn()
+nnoremap <Leader>D :CopyLn<Cr>
 
 " Spell check for commit messages
 au VimEnter,WinEnter,BufWinEnter *COMMIT_EDITMSG setlocal spell
