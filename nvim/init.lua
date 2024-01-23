@@ -1,15 +1,16 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
-
 require("config.lazy")
 
 -- vim.api.nvim_create_user_command("Rg", "lua vim.cmd('silent grep! test | copen')", {})
 
+vim.api.nvim_create_user_command("CopyLn", function()
+    vim.fn.setreg("+", vim.fn.expand("%:t") .. ":" .. vim.fn.line("."))
+end, { desc = "Copy the current filename:line to the + reg" })
+
 vim.g.autoformat = false
 
 -- general config
-vim.cmd([[
+vim.cmd [[
   set tabstop=4 expandtab shiftwidth=4 smarttab
   set copyindent " use tabs when a line is with tabs, spaces when a line is with spaces
 
@@ -27,7 +28,7 @@ vim.cmd([[
 
   set listchars=tab:>·,trail:_,extends:>,precedes:<
   set list
-]])
+]]
 
 -- colors
 vim.cmd([[

@@ -11,12 +11,12 @@ vim.keymap.set("n", "<leader>ak", "<cmd>split<cr><C-W>k")
 vim.keymap.set("n", "<leader>aj", "<cmd>split<cr>")
 
 -- close location & quick fix and stop highlighting search
-vim.keymap.set("n", "<Leader>v", "<cmd>pc<cr><cmd>lcl<cr><cmd>ccl<cr><cmd>noh<cr>")
+vim.keymap.set("n", "<Leader>v", "<cmd>pc<cr><cmd>lcl<cr><cmd>ccl<cr><cmd>noh<cr>", { desc = "Clear search" })
 
 vim.keymap.set("n", "<Leader>aa", "<cmd>Ouroboros<cr>")
 
-vim.keymap.set("n", "<Leader>fw", [["zyiw:exe "Ag ".@z.""<cr><cr><cr>]])
-vim.keymap.set("n", "<Leader>f<space>", ":Ag ")
+vim.keymap.set("n", "<Leader>fw", [["zyiw:exe "Ag ".@z.""<cr><cr><cr>]], { desc = "Ag word" })
+vim.keymap.set("n", "<Leader>f<space>", "<cmd>Ag ", { desc = "Ag" })
 
--- sub the word under the cursor
-vim.keymap.set("n", "<Leader>ar", [[:%s/\<<C-r><C-w>\>/]])
+vim.keymap.set("n", "<Leader>ar", [[:%s/\<<C-r><C-w>\>/]], { desc = "Sub word under cursor" })
+vim.keymap.set("n", "<Leader>D", [[<cmd>CopyLn <cr>]], { silent = true, desc = "Copy line to clipboard" })
