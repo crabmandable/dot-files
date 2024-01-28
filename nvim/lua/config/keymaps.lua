@@ -20,3 +20,11 @@ vim.keymap.set("n", "<Leader>f<space>", "<cmd>Ag ", { desc = "Ag" })
 
 vim.keymap.set("n", "<Leader>ar", [[:%s/\<<C-r><C-w>\>/]], { desc = "Sub word under cursor" })
 vim.keymap.set("n", "<Leader>D", [[<cmd>CopyLn <cr>]], { silent = true, desc = "Copy line to clipboard" })
+
+vim.keymap.set("n", "<Leader>ad", function()
+    if vim.diagnostic.is_disabled(0) then
+        vim.diagnostic.enable(0)
+    else
+        vim.diagnostic.disable(0)
+    end
+end, { silent = true, desc = "Toggle diagnostics for current buffer" })
