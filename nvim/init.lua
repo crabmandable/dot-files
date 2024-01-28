@@ -28,6 +28,8 @@ vim.cmd [[
 
   set listchars=tab:>·,trail:_,extends:>,precedes:<
   set list
+
+  set wrap
 ]]
 
 -- colors
