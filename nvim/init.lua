@@ -32,8 +32,7 @@ vim.cmd [[
   set wrap
 ]]
 
--- colors
-vim.cmd([[
-  hi Normal guibg=NONE ctermbg=NONE
-  hi NormalNC guibg=NONE ctermbg=NONE
-]])
+-- vim.cmd([[
+--   " hi Normal guibg=NONE ctermbg=NONE
+--   " hi NormalNC guibg=NONE ctermbg=NONE
+-- ]])

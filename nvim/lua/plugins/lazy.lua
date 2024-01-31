@@ -3,7 +3,7 @@ return {
     {
         "LazyVim/LazyVim",
         opts = {
-            colorscheme = "catppuccin",
+            colorscheme = "tokyonight",
         },
     },
     { "echasnovski/mini.pairs", enabled = false },
@@ -21,8 +21,19 @@ return {
     },
     {
         "folke/flash.nvim",
+        enabled = false,
         keys = {
             { "s", mode = { "n", "e", "o" }, false },
+        },
+    },
+    {
+        "folke/tokyonight.nvim",
+        opts = {
+            transparent = true,
+            styles = {
+                sidebars = "transparent",
+                floats = "transparent",
+            },
         },
     },
 }
