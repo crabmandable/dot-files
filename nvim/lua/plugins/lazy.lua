@@ -6,6 +6,13 @@ return {
             colorscheme = "tokyonight",
         },
     },
+    {
+        "akinsho/bufferline.nvim",
+        keys = {
+            { "<S-l>",  false },
+            { "<S-h",  false },
+        },
+    },
     { "echasnovski/mini.pairs", enabled = false },
     {
         "williamboman/mason.nvim",

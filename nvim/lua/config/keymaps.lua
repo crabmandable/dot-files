@@ -1,8 +1,10 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
--- stop highliting search
-vim.keymap.set("n", "<Leader>v", "<cmd>noh<cr>")
+
+--  fucking stop lazy vim from mapping these :/
+vim.cmd.nunmap("<S-l>")
+vim.cmd.nunmap("<S-h>")
 
 --  splitting
 vim.keymap.set("n", "<leader>ah", "<cmd>vsplit<cr><C-W>h")
