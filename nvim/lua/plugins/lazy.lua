@@ -23,6 +23,7 @@ return {
                 "codespell",
                 "shfmt",
                 "stylua",
+                "shellcheck",
             },
         },
     },

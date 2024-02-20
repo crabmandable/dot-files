@@ -15,8 +15,6 @@ vim.keymap.set("n", "<leader>aj", "<cmd>split<cr>")
 -- close location & quick fix and stop highlighting search
 vim.keymap.set("n", "<Leader>v", "<cmd>pc<cr><cmd>lcl<cr><cmd>ccl<cr><cmd>noh<cr>", { desc = "Clear search" })
 
-vim.keymap.set("n", "<Leader>aa", "<cmd>Ouroboros<cr>")
-
 vim.keymap.set("n", "<Leader>fw", [["zyiw:exe "Ag ".@z.""<cr><cr><cr>]], { desc = "Ag word" })
 vim.keymap.set("n", "<Leader>f<space>", "<cmd>Ag ", { desc = "Ag" })
 
@@ -30,3 +28,5 @@ vim.keymap.set("n", "<Leader>ad", function()
         vim.diagnostic.disable(0)
     end
 end, { silent = true, desc = "Toggle diagnostics for current buffer" })
+
+vim.keymap.set("n", "<leader>cg", "<cmd>Neogen<cr>", { silent = true, desc = "Neogen" })
