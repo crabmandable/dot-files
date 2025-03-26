@@ -30,3 +30,6 @@ vim.keymap.set("n", "<Leader>ad", function()
 end, { silent = true, desc = "Toggle diagnostics for current buffer" })
 
 vim.keymap.set("n", "<leader>cg", "<cmd>Neogen<cr>", { silent = true, desc = "Neogen" })
+
+vim.keymap.set("n", "<leader>p", "\"0p", { desc = "[p]ut from 0"})
+vim.keymap.set("n", "<leader>P", "\"0P", { desc = "[P]ut from 0"})

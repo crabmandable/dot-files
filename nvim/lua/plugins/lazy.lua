@@ -8,6 +8,7 @@ return {
     },
     {
         "akinsho/bufferline.nvim",
+        enabled = false,
         keys = {
             { "<S-l>",  false },
             { "<S-h",  false },
@@ -24,6 +25,7 @@ return {
                 "shfmt",
                 "stylua",
                 "shellcheck",
+                "pyright",
             },
         },
     },
@@ -48,6 +50,12 @@ return {
         "nvim-lspconfig",
         opts = {
             inlay_hints = { enabled = false },
+        },
+    },
+    {
+        "folke/snacks.nvim",
+        opts = {
+            scroll = { enabled = false },
         },
     },
 }
