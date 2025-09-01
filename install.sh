@@ -79,4 +79,28 @@ if command -v kitty >/dev/null; then
 	fi
 fi
 
+if confirm "Would you like to install the zsh config?"; then
+    if [ -f ~/.zshrc ]; then
+        if grep -q zsh/zsh\\.zsh ~/.zshrc; then
+            echo "zsh.zsh is already installed"
+        else
+            echo '[ -f "'"$(pwd)"'/zsh/zsh.zsh" ] && source "'"$(pwd)"'/zsh/zsh.zsh"' >> ~/.zshrc
+        fi
+    else
+        echo "ERROR: .zshrc does not appear to be in the normal place"
+    fi
+fi
+
+if confirm "Would you like to install the jenoptik zsh config?"; then
+    if [ -f ~/.zshrc ]; then
+        if grep -q zsh/jenoptik\\.zsh ~/.zshrc; then
+            echo "jenoptik.zsh is already installed"
+        else
+            echo '[ -f "'"$(pwd)"'/zsh/jenoptik.zsh" ] && source "'"$(pwd)"'/zsh/jenoptik.zsh"' >> ~/.zshrc
+        fi
+    else
+        echo "ERROR: .zshrc does not appear to be in the normal place"
+    fi
+fi
+
 echo "Finished"
